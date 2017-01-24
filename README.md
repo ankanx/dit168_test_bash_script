@@ -1,7 +1,7 @@
 # dit168_bash_scripts
 
-# Setup
+## Setup
 chmod u+x dit168_test.sh
 
-# Run
+## Run
 ./dit168_test.sh
