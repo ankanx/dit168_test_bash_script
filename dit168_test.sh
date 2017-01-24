@@ -3,19 +3,21 @@
 # DIT168 car docker test script
 
 
-echo "Starting Test setup...\n"
-echo "Getting DIT168 test package...\n"
+echo "Starting Test setup..."
+echo ""
+echo "Getting DIT168 test package..."
 sudo mkdir DIT168-test
 sudo cd DIT168-test
 sudo wget http://www.cse.chalmers.se/~bergerc/DIT-168.zip
-echo "Decompressing and moving into test package....\n"
+echo ""
+echo "Decompressing and moving into test package...."
 sudo unzip DIT-168.zip
 
-
-echo "Pulling latest docker  opendavinci-ubuntu-16.04....\n "
+echo ""
+echo "Pulling latest docker  opendavinci-ubuntu-16.04.... "
 sudo docker pull seresearch/opendavinci-ubuntu-16.04-complete:latest
-
-echo "Setting up test enviorment...\n"
+echo ""
+echo "Setting up test enviorment..."
 sudo gnome-terminal --tab -e "sudo docker run -ti --rm --net=host -v $HOME/DIT-168:/opt/configuration -w /opt/configuration seresearch/opendavinci-ubuntu-16.04-complete:latest /opt/od4/bin/odsupercomponent --cid=111 --verbose=1"
 
 sudo gnome-terminal --tab -e "docker run -ti --rm --net=host seresearch/opendavinci-ubuntu-16.04-complete:latest /opt/od4/bin/odsimvehicle --cid=111 --freq=10"
